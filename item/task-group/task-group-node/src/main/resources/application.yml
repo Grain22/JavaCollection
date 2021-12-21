@@ -1,0 +1,32 @@
+server:
+  port: 19952
+  servlet:
+    context-path: /api
+    session:
+      timeout: 3000m
+spring:
+  profiles:
+    active: dev
+  application:
+    name: spring-boot-group-center
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+      enabled: true
+logging:
+  file:
+    path: logs/
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%logger{99}){cyan}[line:%line] %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %logger{99} [line:%line] : %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      clean-history-on-start: true
+      max-history: 300
+      total-size-cap: 10000MB
+self:
+  properties:
+    host-address: 127.0.0.1
+    host-port: 19951

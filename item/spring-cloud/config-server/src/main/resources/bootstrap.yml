@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+  application:
+    name: @project.artifactId@
+  profiles:
+    active: native
+  security:
+    user:
+      name: grain
+      password: grain
+  boot:
+    admin:
+      client:
+        username: grain
+        password: grain
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://grain:grain@server-8001:8001/eureka/,http://grain:grain@server-8002:8002/eureka/,http://grain:grain@server-8003:8003/eureka/
+server:
+  port: 8000

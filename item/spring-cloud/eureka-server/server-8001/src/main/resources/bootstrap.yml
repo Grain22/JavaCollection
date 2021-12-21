@@ -1,0 +1,24 @@
+server:
+  port: 8001
+spring:
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+        - VM.*
+      preferredNetworks:
+        - 192.168
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: grain
+      password: grain
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://grain:grain@server-8002:8002/eureka,http://grain:grain@server-8003:8003/eureka
+  instance:
+    hostname: server-${server.port}
+    prefer-ip-address: false

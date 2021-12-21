@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: global-router
+          uri: lb://eureka-server
+          predicates:
+            - Path=/eureka-server/**
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://grain:grain@server-8001:8001/eureka/,http://grain:grain@server-8002:8002/eureka/,http://grain:grain@server-8003:8003/eureka/

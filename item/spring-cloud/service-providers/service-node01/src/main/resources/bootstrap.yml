@@ -1,0 +1,9 @@
+server:
+  port: 8022
+spring:
+  application:
+    name: service-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://grain:grain@server-8001:8001/eureka/,http://grain:grain@server-8002:8002/eureka/,http://grain:grain@server-8003:8003/eureka/
